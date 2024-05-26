@@ -113,6 +113,7 @@ declare module 'vue' {
     UserCLIAndAPITab: typeof import('./src/components/user/UserCLIAndAPITab.vue')['default']
     UserGeneralTab: typeof import('./src/components/user/UserGeneralTab.vue')['default']
     UserSecretsTab: typeof import('./src/components/user/UserSecretsTab.vue')['default']
+    UserVariablesTab: typeof import('./src/components/user/UserVariablesTab.vue')['default']
     VariableEdit: typeof import('./src/components/variables/VariableEdit.vue')['default']
     VariableList: typeof import('./src/components/variables/VariableList.vue')['default']
     VariablesTab: typeof import('./src/components/repo/settings/VariablesTab.vue')['default']

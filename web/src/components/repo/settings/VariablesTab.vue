@@ -1,13 +1,13 @@
 <template>
-  <Settings :title="$t('variable.variable')" :desc="$t('variable.desc')" docs-url="docs/usage/variable">
+  <Settings :title="$t('variables.variables')" :desc="$t('variables.desc')" docs-url="docs/usage/variables">
     <template #titleActions>
       <Button
         v-if="selectedVariable"
-        :text="$t('variable.show')"
+        :text="$t('variables.show')"
         start-icon="back"
         @click="selectedVariable = undefined"
       />
-      <Button v-else :text="$t('variable.add')" start-icon="plus" @click="showAddVariable" />
+      <Button v-else :text="$t('variables.add')" start-icon="plus" @click="showAddVariable" />
     </template>
 
     <VariableList
@@ -56,7 +56,7 @@ const repo = inject<Ref<Repo>>('repo');
 const selectedVariable = ref<Partial<Variable>>();
 const isEditingVariable = computed(() => !!selectedVariable.value?.id);
 
-async function loadVariable(page: number, level: 'repo' | 'org' | 'global'): Promise<Variable[] | null> {
+async function loadVariables(page: number, level: 'repo' | 'org' | 'global'): Promise<Variable[] | null> {
   if (!repo?.value) {
     throw new Error("Unexpected: Can't load repo");
   }
@@ -73,12 +73,12 @@ async function loadVariable(page: number, level: 'repo' | 'org' | 'global'): Pro
   }
 }
 
-const { resetPage, data: _variables } = usePagination(loadVariable, () => !selectedVariable.value, {
+const { resetPage, data: _variables } = usePagination(loadVariables, () => !selectedVariable.value, {
   each: ['repo', 'org', 'global'],
   pageSize: 50,
 });
 const variables = computed(() => {
-  const variableList: Record<string, Variable & { edit?: boolean; level: 'repo' | 'org' | 'global' }> = {};
+  const variablesList: Record<string, Variable & { edit?: boolean; level: 'repo' | 'org' | 'global' }> = {};
 
   // eslint-disable-next-line no-restricted-syntax
   for (const level of ['repo', 'org', 'global']) {
@@ -88,9 +88,9 @@ const variables = computed(() => {
         ((level === 'repo' && variable.repo_id !== 0 && variable.org_id === 0) ||
           (level === 'org' && variable.repo_id === 0 && variable.org_id !== 0) ||
           (level === 'global' && variable.repo_id === 0 && variable.org_id === 0)) &&
-        !variableList[variable.name]
+        !variablesList[variable.name]
       ) {
-        variableList[variable.name] = { ...variable, edit: variable.repo_id !== 0, level };
+        variablesList[variable.name] = { ...variable, edit: variable.repo_id !== 0, level };
       }
     }
   }
@@ -101,7 +101,7 @@ const variables = computed(() => {
     repo: 2,
   };
 
-  return Object.values(variableList)
+  return Object.values(variablesList)
     .toSorted((a, b) => a.name.localeCompare(b.name))
     .toSorted((a, b) => levelsOrder[b.level] - levelsOrder[a.level]);
 });
@@ -121,7 +121,7 @@ const { doSubmit: createSecret, isLoading: isSaving } = useAsyncAction(async () 
     await apiClient.createSecret(repo.value.id, selectedVariable.value);
   }
   notifications.notify({
-    title: i18n.t(isEditingVariable.value ? 'variable.saved' : 'variable.created'),
+    title: i18n.t(isEditingVariable.value ? 'variables.saved' : 'variables.created'),
     type: 'success',
   });
   selectedVariable.value = undefined;
@@ -134,7 +134,7 @@ const { doSubmit: deleteSecret, isLoading: isDeleting } = useAsyncAction(async (
   }
 
   await apiClient.deleteSecret(repo.value.id, _variable.name);
-  notifications.notify({ title: i18n.t('variable.deleted'), type: 'success' });
+  notifications.notify({ title: i18n.t('variables.deleted'), type: 'success' });
   await resetPage();
 });
 

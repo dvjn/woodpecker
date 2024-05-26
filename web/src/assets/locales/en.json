@@ -413,9 +413,11 @@
         }
       },
       "secrets": {
+        "secrets": "Secrets",
         "desc": "User secrets can be passed to all user's repository individual pipeline steps at runtime as environmental variables."
       },
       "variables": {
+        "variables": "Variables",
         "desc": "User variables can be passed to all user's repository individual pipeline steps at runtime as environmental variables."
       },
       "cli_and_api": {

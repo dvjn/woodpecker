@@ -5,6 +5,9 @@
     <Tab id="general" :title="$t('user.settings.general.general')">
       <UserGeneralTab />
     </Tab>
+    <Tab id="variables" :title="$t('user.settings.variables.variables')">
+      <UserVariablesTab />
+    </Tab>
     <Tab id="secrets" :title="$t('user.settings.secrets.secrets')">
       <UserSecretsTab />
     </Tab>
@@ -20,6 +23,7 @@ import Tab from '~/components/layout/scaffold/Tab.vue';
 import UserCLIAndAPITab from '~/components/user/UserCLIAndAPITab.vue';
 import UserGeneralTab from '~/components/user/UserGeneralTab.vue';
 import UserSecretsTab from '~/components/user/UserSecretsTab.vue';
+import UserVariablesTab from '~/components/user/UserVariablesTab.vue';
 import useConfig from '~/compositions/useConfig';
 
 const address = `${window.location.protocol}//${window.location.host}${useConfig().rootPath}`; // port is included in location.host
