@@ -17,11 +17,11 @@
     <Tab id="general" :title="$t('repo.settings.general.general')">
       <GeneralTab />
     </Tab>
+    <Tab id="variables" :title="$t('variables.variables')">
+      <VariablesTab />
+    </Tab>
     <Tab id="secrets" :title="$t('secrets.secrets')">
       <SecretsTab />
-    </Tab>
-    <Tab id="environments" :title="$t('environments.environments')">
-      <EnvironmentsTab />
     </Tab>
     <Tab id="registries" :title="$t('repo.settings.registries.registries')">
       <RegistriesTab />
@@ -48,10 +48,10 @@ import Tab from '~/components/layout/scaffold/Tab.vue';
 import ActionsTab from '~/components/repo/settings/ActionsTab.vue';
 import BadgeTab from '~/components/repo/settings/BadgeTab.vue';
 import CronTab from '~/components/repo/settings/CronTab.vue';
-import EnvironmentsTab from '~/components/repo/settings/EnvironmentsTab.vue';
 import GeneralTab from '~/components/repo/settings/GeneralTab.vue';
 import RegistriesTab from '~/components/repo/settings/RegistriesTab.vue';
 import SecretsTab from '~/components/repo/settings/SecretsTab.vue';
+import VariablesTab from '~/components/repo/settings/VariablesTab.vue';
 import useNotifications from '~/compositions/useNotifications';
 import { useRouteBack } from '~/compositions/useRouteBack';
 import { Repo, RepoPermissions } from '~/lib/api/types';

@@ -1,23 +1,23 @@
 <template>
   <div v-if="innerValue" class="space-y-4">
     <form @submit.prevent="save">
-      <InputField v-slot="{ id }" :label="$t('environments.name')">
+      <InputField v-slot="{ id }" :label="$t('variables.name')">
         <TextField
           :id="id"
           v-model="innerValue.name"
-          :placeholder="$t('environments.name')"
+          :placeholder="$t('variables.name')"
           required
-          :disabled="isEditingEnvironment"
+          :disabled="isEditingVariable"
         />
       </InputField>
 
-      <InputField v-slot="{ id }" :label="$t('environments.value')">
+      <InputField v-slot="{ id }" :label="$t('variables.value')">
         <TextField
           :id="id"
           v-model="innerValue.value"
-          :placeholder="$t('environments.value')"
+          :placeholder="$t('variables.value')"
           :lines="5"
-          :required="!isEditingEnvironment"
+          :required="!isEditingVariable"
         />
       </InputField>
 
@@ -27,7 +27,7 @@
           type="submit"
           color="green"
           :is-loading="isSaving"
-          :text="isEditingEnvironment ? $t('environments.save') : $t('environments.add')"
+          :text="isEditingVariable ? $t('variables.save') : $t('variables.add')"
         />
       </div>
     </form>
@@ -40,16 +40,16 @@ import { computed, toRef } from 'vue';
 import Button from '~/components/atomic/Button.vue';
 import InputField from '~/components/form/InputField.vue';
 import TextField from '~/components/form/TextField.vue';
-import { Environment } from '~/lib/api/types';
+import { Variable } from '~/lib/api/types';
 
 const props = defineProps<{
-  modelValue: Partial<Environment>;
+  modelValue: Partial<Variable>;
   isSaving: boolean;
 }>();
 
 const emit = defineEmits<{
-  (event: 'update:modelValue', value: Partial<Environment> | undefined): void;
-  (event: 'save', value: Partial<Environment>): void;
+  (event: 'update:modelValue', value: Partial<Variable> | undefined): void;
+  (event: 'save', value: Partial<Variable>): void;
   (event: 'cancel'): void;
 }>();
 
@@ -60,7 +60,7 @@ const innerValue = computed({
     emit('update:modelValue', value);
   },
 });
-const isEditingEnvironment = computed(() => !!innerValue.value?.id);
+const isEditingVariable = computed(() => !!innerValue.value?.id);
 
 function save() {
   if (!innerValue.value) {

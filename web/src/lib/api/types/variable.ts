@@ -1,4 +1,4 @@
-export type Environment = {
+export type Variable = {
   id: string;
   repo_id: number;
   org_id: number;

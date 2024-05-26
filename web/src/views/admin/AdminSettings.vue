@@ -6,11 +6,11 @@
     <Tab id="info" :title="$t('info')">
       <AdminInfoTab />
     </Tab>
+    <Tab id="variables" :title="$t('variables.variables')">
+      <AdminVariablesTab />
+    </Tab>
     <Tab id="secrets" :title="$t('secrets.secrets')">
       <AdminSecretsTab />
-    </Tab>
-    <Tab id="environments" :title="$t('environments.environments')">
-      <AdminEnvironmentsTab />
     </Tab>
     <Tab id="repos" :title="$t('admin.settings.repos.repos')">
       <AdminReposTab />
@@ -36,13 +36,13 @@ import { useI18n } from 'vue-i18n';
 import { useRouter } from 'vue-router';
 
 import AdminAgentsTab from '~/components/admin/settings/AdminAgentsTab.vue';
-import AdminEnvironmentsTab from '~/components/admin/settings/AdminEnvironmentsTab.vue';
 import AdminInfoTab from '~/components/admin/settings/AdminInfoTab.vue';
 import AdminOrgsTab from '~/components/admin/settings/AdminOrgsTab.vue';
 import AdminQueueTab from '~/components/admin/settings/AdminQueueTab.vue';
 import AdminReposTab from '~/components/admin/settings/AdminReposTab.vue';
 import AdminSecretsTab from '~/components/admin/settings/AdminSecretsTab.vue';
 import AdminUsersTab from '~/components/admin/settings/AdminUsersTab.vue';
+import AdminVariablesTab from '~/components/admin/settings/AdminVariablesTab.vue';
 import Scaffold from '~/components/layout/scaffold/Scaffold.vue';
 import Tab from '~/components/layout/scaffold/Tab.vue';
 import useAuthentication from '~/compositions/useAuthentication';
