@@ -9,6 +9,9 @@
     <Tab id="secrets" :title="$t('secrets.secrets')">
       <AdminSecretsTab />
     </Tab>
+    <Tab id="environments" :title="$t('environments.environments')">
+      <AdminEnvironmentsTab />
+    </Tab>
     <Tab id="repos" :title="$t('admin.settings.repos.repos')">
       <AdminReposTab />
     </Tab>
@@ -33,6 +36,7 @@ import { useI18n } from 'vue-i18n';
 import { useRouter } from 'vue-router';
 
 import AdminAgentsTab from '~/components/admin/settings/AdminAgentsTab.vue';
+import AdminEnvironmentsTab from '~/components/admin/settings/AdminEnvironmentsTab.vue';
 import AdminInfoTab from '~/components/admin/settings/AdminInfoTab.vue';
 import AdminOrgsTab from '~/components/admin/settings/AdminOrgsTab.vue';
 import AdminQueueTab from '~/components/admin/settings/AdminQueueTab.vue';
