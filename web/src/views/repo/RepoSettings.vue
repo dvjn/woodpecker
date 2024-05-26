@@ -20,6 +20,9 @@
     <Tab id="secrets" :title="$t('secrets.secrets')">
       <SecretsTab />
     </Tab>
+    <Tab id="environments" :title="$t('environments.environments')">
+      <EnvironmentsTab />
+    </Tab>
     <Tab id="registries" :title="$t('repo.settings.registries.registries')">
       <RegistriesTab />
     </Tab>
@@ -45,6 +48,7 @@ import Tab from '~/components/layout/scaffold/Tab.vue';
 import ActionsTab from '~/components/repo/settings/ActionsTab.vue';
 import BadgeTab from '~/components/repo/settings/BadgeTab.vue';
 import CronTab from '~/components/repo/settings/CronTab.vue';
+import EnvironmentsTab from '~/components/repo/settings/EnvironmentsTab.vue';
 import GeneralTab from '~/components/repo/settings/GeneralTab.vue';
 import RegistriesTab from '~/components/repo/settings/RegistriesTab.vue';
 import SecretsTab from '~/components/repo/settings/SecretsTab.vue';
