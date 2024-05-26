@@ -11,17 +11,16 @@
       <Button
         v-if="selectedSecret"
         class="ml-auto"
-        :text="$t('user.settings.secrets.show')"
+        :text="$t('secrets.show')"
         start-icon="back"
         @click="selectedSecret = undefined"
       />
-      <Button v-else class="ml-auto" :text="$t('user.settings.secrets.add')" start-icon="plus" @click="showAddSecret" />
+      <Button v-else class="ml-auto" :text="$t('secrets.add')" start-icon="plus" @click="showAddSecret" />
     </div>
 
     <SecretList
       v-if="!selectedSecret"
       v-model="secrets"
-      i18n-prefix="user.settings.secrets."
       :is-deleting="isDeleting"
       @edit="editSecret"
       @delete="deleteSecret"
@@ -30,7 +29,6 @@
     <SecretEdit
       v-else
       v-model="selectedSecret"
-      i18n-prefix="user.settings.secrets."
       :is-saving="isSaving"
       @save="createSecret"
       @cancel="selectedSecret = undefined"

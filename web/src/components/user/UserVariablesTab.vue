@@ -11,23 +11,16 @@
       <Button
         v-if="selectedVariable"
         class="ml-auto"
-        :text="$t('user.settings.variables.show')"
+        :text="$t('variables.show')"
         start-icon="back"
         @click="selectedVariable = undefined"
       />
-      <Button
-        v-else
-        class="ml-auto"
-        :text="$t('user.settings.variables.add')"
-        start-icon="plus"
-        @click="showAddVariable"
-      />
+      <Button v-else class="ml-auto" :text="$t('variables.add')" start-icon="plus" @click="showAddVariable" />
     </div>
 
     <VariableList
       v-if="!selectedVariable"
       v-model="variables"
-      i18n-prefix="user.settings.variables."
       :is-deleting="isDeleting"
       @edit="editVariable"
       @delete="deleteVariable"
@@ -36,7 +29,6 @@
     <VariableEdit
       v-else
       v-model="selectedVariable"
-      i18n-prefix="user.settings.variables."
       :is-saving="isSaving"
       @save="createVariable"
       @cancel="selectedVariable = undefined"
