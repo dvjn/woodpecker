@@ -5,10 +5,10 @@
     <Tab id="general" :title="$t('user.settings.general.general')">
       <UserGeneralTab />
     </Tab>
-    <Tab id="variables" :title="$t('user.settings.variables.variables')">
+    <Tab id="variables" :title="$t('variables.variables')">
       <UserVariablesTab />
-    </Tab>
-    <Tab id="secrets" :title="$t('user.settings.secrets.secrets')">
+    </Tab
+    <Tab id="secrets" :title="$t('secrets.secrets')">
       <UserSecretsTab />
     </Tab>
     <Tab id="cli-and-api" :title="$t('user.settings.cli_and_api.cli_and_api')">

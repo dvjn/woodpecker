@@ -2,10 +2,10 @@
   <Panel>
     <div class="flex flex-row border-b mb-4 pb-4 items-center dark:border-wp-background-100">
       <div class="ml-2">
-        <h1 class="text-xl text-wp-text-100">{{ $t('user.settings.secrets.secrets') }}</h1>
+        <h1 class="text-xl text-wp-text-100">{{ $t('secrets.secrets') }}</h1>
         <p class="text-sm text-wp-text-alt-100">
-          {{ $t('user.settings.secrets.desc') }}
-          <DocsLink :topic="$t('user.settings.secrets.secrets')" url="docs/usage/secrets" />
+          {{ $t('secrets.desc') }}
+          <DocsLink :topic="$t('secrets.secrets')" url="docs/usage/secrets" />
         </p>
       </div>
       <Button
