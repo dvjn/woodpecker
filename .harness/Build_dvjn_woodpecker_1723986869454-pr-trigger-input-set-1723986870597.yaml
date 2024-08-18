@@ -1,0 +1,14 @@
+inputSet:
+  name: Build_dvjn_woodpecker_1723986869454-pr-trigger-input-set
+  identifier: Build_dvjn_woodpecker_1723986869454prtriggerinputset
+  orgIdentifier: default
+  projectIdentifier: Test
+  pipeline:
+    identifier: Build_dvjn_woodpecker_1723986869454
+    properties:
+      ci:
+        codebase:
+          build:
+            type: PR
+            spec:
+              number: <+trigger.prNumber>
